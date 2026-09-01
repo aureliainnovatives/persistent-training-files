@@ -1,0 +1,78 @@
+Data Cleaning Phase
+        ↓
+SOURCE + TARGET SCHEMA
+        ↓
+BUSINESS REQUIREMENTS
+        ↓
+BUSINESS RULES
+        ↓
+MAPPING SPEC
+        ↓
+TRANSFORMATION CODE
+        ↓
+ACTUAL DATA TRANSFORMATION
+        ↓
+VALIDATION
+        ↓
+QUALITY / SELF-HEALING AGENT
+        ↓
+TESTING
+        ↓
+TARGET DATA
+
+
+
+- Have Source and Target Schemas
+- Have Business Requirements
+- Since we have business requirements, schemas, design the business rules from the requirements -
+
+        Act as a data integration architect.
+        Using the source schema, target schema and business requirements, create 05-business-rules.md.
+
+        For every rule include:
+        - Rule ID
+        - Requirement ID
+        - Business description
+        - Source field(s)
+        - Target field
+        - Transformation/normalization
+        - Validation
+        - Error handling
+        - Whether the action is deterministic or requires human review
+
+        Do not generate implementation code.
+        Do not invent missing business rules.
+        Explicitly flag assumptions.
+
+- Creating Source and Target Schemas Mapping with following prompt -
+      Create 06-mapping-spec.yaml from the approved schemas and business rules.
+      For every mapping include mapping ID, source fields, target field, referenced business-rule IDs,
+      transformation name, validation expectation, and error behavior.
+      Do not write Python code.
+      Preserve traceability to the business rules.
+
+ 
+- Generate Python Code based on the Business Requirements, Schemas and for the source data
+
+Prompt :
+
+    Read 01-source-schema.yaml, 02-target-schema.yaml, 05-business-rules.md,
+    06-mapping-spec.yaml and 04-source-data.json.
+
+    Generate 07-transform.py.
+    The code must:
+    - implement only approved mapping rules,
+    - trim strings,
+    - combine names,
+    - lowercase valid/invalid email text without inventing values,
+    - prefix +91 only for exactly 10 numeric mobile digits,
+    - map only known state codes,
+    - preserve unknown values for downstream validation,
+    - read 04-source-data.json,
+    - write output/transformed.json.
+
+    Keep transform_customer(source) as a separately testable function.
+
+
+- Run the Python Code 
+        - output/transformed.json

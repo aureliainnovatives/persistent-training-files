@@ -1,0 +1,166 @@
+mapping_specification:
+  name: legacy_crm_to_canonical_customer
+  version: "1.0"
+  source_schema: 01-source-schema.yaml
+  target_schema: 02-target-schema.yaml
+  business_rules: 05-business-rules.md
+  mappings:
+    - mapping_id: MAP-001
+      source_fields:
+        - customer.cust_no
+      target_field: customer.customerId
+      business_rule_ids:
+        - BR-01
+        - BR-06
+        - BR-07
+      transformation_name: trim_and_preserve_customer_id
+      validation_expectation: >-
+        The trimmed value is required and must match the target pattern
+        ^C[0-9]{4}$.
+      error_behavior: >-
+        Preserve the supplied value for diagnostics. Mark the record invalid
+        and quarantine it when the value is missing or does not match the
+        target pattern. Do not pad, truncate, generate, or rewrite the ID.
+
+    - mapping_id: MAP-002
+      source_fields:
+        - customer.first_name
+        - customer.last_name
+      target_field: customer.fullName
+      business_rule_ids:
+        - BR-02
+        - BR-06
+        - BR-07
+      transformation_name: trim_and_combine_customer_name
+      validation_expectation: >-
+        The trimmed first_name is required and non-empty. Join non-empty
+        trimmed name parts with one space; the resulting fullName is required
+        and non-empty.
+      error_behavior: >-
+        Do not invent or substitute a name. Preserve source values for
+        diagnostics and quarantine the record when first_name is missing,
+        empty, or malformed.
+
+    - mapping_id: MAP-003
+      source_fields:
+        - customer.mail
+      target_field: customer.email
+      business_rule_ids:
+        - BR-03
+        - BR-06
+        - BR-07
+      transformation_name: trim_and_lowercase_email
+      validation_expectation: >-
+        An absent value is valid because email is optional. A supplied trimmed
+        value must pass the approved email validity check.
+      error_behavior: >-
+        Leave an absent value absent. For supplied text, preserve the trimmed
+        lowercased value without correction or invention, mark it invalid, and
+        quarantine the record when the email is malformed.
+
+    - mapping_id: MAP-004
+      source_fields:
+        - customer.mobile
+      target_field: customer.phone
+      business_rule_ids:
+        - BR-04
+        - BR-06
+        - BR-07
+      transformation_name: normalize_valid_indian_mobile
+      validation_expectation: >-
+        An absent value is valid because phone is optional. A supplied value is
+        transformable only when it is exactly 10 numeric digits after trimming.
+        A valid value is formatted as +91-XXXXXXXXXX.
+      error_behavior: >-
+        Preserve an invalid supplied value for downstream validation without
+        adding a prefix, padding, truncating, or repairing it. Quarantine the
+        record when the supplied phone cannot be safely accepted.
+
+    - mapping_id: MAP-005
+      source_fields:
+        - customer.state
+      target_field: customer.state
+      business_rule_ids:
+        - BR-05
+        - BR-06
+        - BR-07
+        - BR-08
+      transformation_name: trim_and_map_known_state_code
+      approved_value_mapping:
+        MH: Maharashtra
+        KA: Karnataka
+        DL: Delhi
+      validation_expectation: >-
+        The trimmed state is required and non-empty. Only MH, KA, and DL are
+        approved source codes for conversion.
+      error_behavior: >-
+        Preserve unknown or malformed values unchanged, attach a review flag
+        or validation error, and do not guess a state name. Quarantine the
+        record when the value cannot be safely accepted.
+
+    - mapping_id: MAP-006
+      source_fields:
+        - customer.cust_no
+      target_field: customer.customerId
+      business_rule_ids:
+        - BR-01
+        - BR-06
+        - BR-09
+      transformation_name: detect_duplicate_normalized_customer_id
+      validation_expectation: >-
+        Compare normalized customer IDs across the complete migration input
+        set. Each valid target customerId must occur only once.
+      error_behavior: >-
+        Flag every record in a duplicate group, retain the source data, and
+        quarantine the group until an approved selection or merge decision is
+        made. Do not deduplicate or generate a replacement ID.
+
+    - mapping_id: MAP-007
+      source_fields:
+        - customer.cust_no
+        - customer.first_name
+        - customer.last_name
+        - customer.mail
+        - customer.mobile
+        - customer.state
+      target_field: customer
+      business_rule_ids:
+        - BR-01
+        - BR-02
+        - BR-03
+        - BR-04
+        - BR-05
+        - BR-06
+        - BR-07
+        - BR-08
+        - BR-09
+        - BR-10
+      transformation_name: determine_record_publishability
+      validation_expectation: >-
+        Publish only when required target fields are valid, customerId is valid
+        and unique, supplied optional values are valid, and no unresolved
+        unknown state or other unsafe value remains.
+      error_behavior: >-
+        Route unsafe records to quarantine with the original record, applicable
+        rule IDs, validation failures, and review status. Do not publish a
+        partial or guessed target record as a successful transformation.
+
+  assumptions:
+    - id: A-01
+      statement: >-
+        cust_no is validated against the target pattern ^C[0-9]{4}$ because it
+        must be preserved and the target schema requires that pattern. A
+        non-conforming value is flagged rather than rewritten.
+    - id: A-02
+      statement: >-
+        Email validity is delegated to the consuming platform or approved
+        validation standard because no exact syntax, domain, or deliverability
+        policy is specified.
+    - id: A-03
+      statement: >-
+        A valid Indian mobile is operationalized as exactly 10 numeric digits
+        after trimming because no additional numbering-range rule is supplied.
+    - id: A-04
+      statement: >-
+        Review flags, validation errors, and quarantine outputs are operational
+        metadata because the target schema defines no such target fields.

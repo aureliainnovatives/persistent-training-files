@@ -1,0 +1,43 @@
+apis:
+  - id: order-api
+    name: Order API
+    domain: commerce
+    owner: Order Platform Team
+    purpose: Retrieve customer orders, order status and delivery destination
+  - id: customer-api
+    name: Customer API
+    domain: customer
+    owner: CRM Team
+    purpose: Retrieve customer profile and account information
+  - id: shipment-api
+    name: Shipment API
+    domain: logistics
+    owner: Logistics Team
+    purpose: Track shipment location and expected delivery
+  - id: inventory-api
+    name: Inventory API
+    domain: supply-chain
+    owner: Inventory Team
+    purpose: Check product inventory and allocation
+  - id: payment-api
+    name: Payment API
+    domain: finance
+    owner: Payments Team
+    purpose: Retrieve payment and settlement status
+
+dependencies:
+  order-api:
+    consumes: [customer-api, inventory-api, payment-api]
+    consumed_by: [customer-portal, support-application, shipment-api]
+  customer-api:
+    consumes: []
+    consumed_by: [order-api, support-application]
+  shipment-api:
+    consumes: [order-api]
+    consumed_by: [customer-portal]
+  inventory-api:
+    consumes: []
+    consumed_by: [order-api]
+  payment-api:
+    consumes: []
+    consumed_by: [order-api]

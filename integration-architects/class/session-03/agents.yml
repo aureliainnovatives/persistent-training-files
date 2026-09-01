@@ -1,0 +1,30 @@
+
+  design_patterns:
+
+    router:
+      idea: "Route the request to the appropriate tool or specialist agent"
+      example: "Customer Query → Billing Agent / Support Agent / Order Agent"
+
+    sequential:
+      idea: "Output of one step becomes input to the next"
+      example: "Order → Destination → Weather"
+
+    parallel:
+      idea: "Independent tasks execute simultaneously"
+      example: "Price Check + Inventory Check + Risk Check"
+
+    supervisor_worker:
+      idea: "Supervisor delegates work to specialist agents"
+      example: "Supervisor → Data Agent / API Agent / Testing Agent"
+
+    planner_executor:
+      idea: "Planner determines steps; executor performs them"
+      example: "Goal → Plan → Execute Steps → Result"
+
+    evaluator_optimizer:
+      idea: "One agent creates while another evaluates and improves"
+      example: "Code Generator → Reviewer → Fix → Re-evaluate"
+
+    human_in_loop:
+      idea: "Agent pauses for human approval before important actions"
+      example: "Generate Deployment → Architect Approval → Deploy"

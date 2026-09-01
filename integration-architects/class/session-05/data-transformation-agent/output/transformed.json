@@ -1,0 +1,180 @@
+{
+  "transformed": [
+    {
+      "customerId": "008",
+      "fullName": "Mayur Patil",
+      "email": "mayur@abc.com",
+      "phone": "+91-9876543210",
+      "state": "Maharashtra"
+    },
+    {
+      "customerId": "C1002",
+      "email": "anita@example.com",
+      "phone": "+91-9988776655",
+      "state": "Karnataka"
+    },
+    {
+      "customerId": "C1002",
+      "email": "anita@example",
+      "phone": "+91-9988776655",
+      "state": "Karnataka"
+    },
+    {
+      "customerId": "C1003",
+      "fullName": "Ravi Kumar",
+      "email": "ravi.k example.com",
+      "phone": "+91-9123456780",
+      "state": "Delhi"
+    },
+    {
+      "customerId": "C1008",
+      "fullName": "Priya",
+      "email": "priya@example.com",
+      "phone": "+91-9765432109",
+      "state": "Maharashtra"
+    },
+    {
+      "customerId": "C1009",
+      "fullName": "Vikram Mehta",
+      "email": "",
+      "phone": "654321098",
+      "state": "Delhi"
+    },
+    {
+      "customerId": "C1002",
+      "fullName": "Anita Shah",
+      "email": "anita@example.com",
+      "phone": "+91-9988776655",
+      "state": "Karnataka"
+    },
+    {
+      "customerId": "C1002",
+      "fullName": "Anita Shah",
+      "email": "anita@example.com",
+      "phone": "+91-9988776655",
+      "state": "Karnataka"
+    }
+  ],
+  "quarantine": [
+    {
+      "source": {
+        "cust_no": "C1004",
+        "first_name": "John",
+        "last_name": "Smith",
+        "mail": "john-invalid-email",
+        "mobile": "9012345678",
+        "state": "MH"
+      },
+      "transformed": {
+        "customerId": "C1004",
+        "fullName": "John Smith",
+        "email": "john-invalid-email",
+        "phone": "+91-9012345678",
+        "state": "Kashmir"
+      },
+      "errors": [
+        "BR-03: supplied email is invalid"
+      ]
+    },
+    {
+      "source": {
+        "cust_no": "C1005",
+        "first_name": "Neha",
+        "last_name": "Joshi",
+        "mail": "neha@example.com",
+        "mobile": "9876501234",
+        "state": "MH"
+      },
+      "transformed": {
+        "customerId": "C1005",
+        "fullName": "Neha Joshi",
+        "email": "neha@example.com",
+        "phone": "+91-9876501234",
+        "state": "Maharashtra"
+      },
+      "errors": [
+        "BR-09: duplicate customerId"
+      ]
+    },
+    {
+      "source": {
+        "cust_no": "C1006",
+        "first_name": "Amit",
+        "last_name": "Desai",
+        "mail": "amit@example.com",
+        "mobile": "123",
+        "state": "KA"
+      },
+      "transformed": {
+        "customerId": "C1006",
+        "fullName": "Amit Desai",
+        "email": "amit@example.com",
+        "phone": "123",
+        "state": "Karnataka"
+      },
+      "errors": [
+        "BR-04: supplied phone is not exactly 10 digits"
+      ]
+    },
+    {
+      "source": {
+        "cust_no": "C1007",
+        "first_name": "Sara",
+        "last_name": "Khan",
+        "mail": "SARA@EXAMPLE.COM",
+        "mobile": "9898989898",
+        "state": "XX"
+      },
+      "transformed": {
+        "customerId": "C1007",
+        "fullName": "Sara Khan",
+        "email": "sara@example.com",
+        "phone": "+91-9898989898",
+        "state": "XX"
+      },
+      "errors": [
+        "BR-05/BR-08: state is missing or contains an unknown value"
+      ]
+    },
+    {
+      "source": {
+        "cust_no": "C1005",
+        "first_name": "Duplicate",
+        "last_name": "Customer",
+        "mail": "dup@example.com",
+        "mobile": "9432109876",
+        "state": "MH"
+      },
+      "transformed": {
+        "customerId": "C1005",
+        "fullName": "Duplicate Customer",
+        "email": "dup@example.com",
+        "phone": "+91-9432109876",
+        "state": "Maharashtra"
+      },
+      "errors": [
+        "BR-09: duplicate customerId"
+      ]
+    },
+    {
+      "source": {
+        "cust_no": "10012",
+        "first_name": "Bad",
+        "last_name": "Identifier",
+        "mail": "badid@example.com",
+        "mobile": "9321098765",
+        "state": "MH"
+      },
+      "transformed": {
+        "customerId": "10012",
+        "fullName": "Bad Identifier",
+        "email": "badid@example.com",
+        "phone": "+91-9321098765",
+        "state": "Maharashtra"
+      },
+      "errors": [
+        "BR-01: customerId is missing or does not match ^C[0-9]{4}$"
+      ]
+    }
+  ]
+}

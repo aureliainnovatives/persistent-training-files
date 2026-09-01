@@ -1,0 +1,56 @@
+Model 
+  - Tokenizer
+    - Vocabulary - 50K Words
+    - Vocabulary - 50K Words - Hindi, Tamil, Marathi ... 100+ languages
+  - Embedder
+
+
+- Sentence --> Token --> Token Id --> Vector --> Embeddings
+
+
+Inferencing --> Token
+Training --> Epocs (Cycle)
+
+
+
+(Training, Inferencing - Chat/Code/Instruction/BatchProcessing)
+Sentence(s) --> Token(s) --> Token Id --> Vector Embeddings
+
+Commecial Viability
+- API Based closed source models - OpenAI, Anthropic, Google's (Pay per TOKEN)
+- Open Source model (weights) - Chinese Models, Microsoft Phi, Sarvam Model....
+
+
+Mayur = [height, weight, language, age, profession, past experience, education]
+14628 = [0.1234578, 0.1234578, 0.1234578, ..., 0.235689 ]
+
+Queen = King - Male + Female
+
+time cook is ceo of apple 
+
+2000  2004
+Apple Orange 
+
+I am full and just had a great lunch and feeling like hungry now
+--> Confused --> Hallucination
+any idea where Mayur is from?
+
+
+- Ponytail - To use minimalistic design or code 
+- Graph Mode (Nodes, Edges)
+- Gaurdrails
+- Format Explanation
+- Examples
+
+
+- Present your source code in a Node like relationship
+- Graphify --> Graph Node Search
+
+20K Tokens
+Can you replace the database access from localhost to 192.45.6.7
+
+grep | localhost --> 40 Files
+
+grep | 
+
+500 Files Source Code -> 1000 Lines of Code

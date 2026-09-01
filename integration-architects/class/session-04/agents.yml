@@ -1,0 +1,78 @@
+
+  design_patterns:
+
+    router:
+      idea: "Route the request to the appropriate tool or specialist agent"
+      example: "Customer Query → Billing Agent / Support Agent / Order Agent"
+
+    sequential:
+      idea: "Output of one step becomes input to the next"
+      example: "Order → Destination → Weather"
+
+    parallel:
+      idea: "Independent tasks execute simultaneously"
+      example: "Price Check + Inventory Check + Risk Check"
+
+    supervisor_worker:
+      idea: "Supervisor delegates work to specialist agents"
+      example: "Supervisor → Data Agent / API Agent / Testing Agent"
+
+    planner_executor:
+      idea: "Planner determines steps; executor performs them"
+      example: "Goal → Plan → Execute Steps → Result"
+
+    evaluator_optimizer:
+      idea: "One agent creates while another evaluates and improves"
+      example: "Code Generator → Reviewer → Fix → Re-evaluate"
+
+    human_in_loop:
+      idea: "Agent pauses for human approval before important actions"
+      example: "Generate Deployment → Architect Approval → Deploy"
+
+
+  engineering_evolution:
+    prompt_engineering:
+      question: "How should I ask the model?"
+      focus: "instruction"
+    
+    context_engineering:
+      question: "What information should the model know/see? "
+      focus: "Relevant context"
+
+    harness_engineering:
+      question: "What system should surround the model?"
+      focus: "Reliability, tools, validation, control, observability"
+
+    loop_engineering:
+
+    graph_engineering:
+
+  
+
+  harness_engineering:
+    define: "Engineering the environment around a model so an AI system can operate reliably, safety, compliances, security and repeatedly. "
+
+    priciple: "The model provides intelligence, the harness provides reliability, control by introducing environment for the AI system"
+
+    components:
+      instructions: "define goals, define roles, define characters, define contraints, define rules and expected behavior"
+
+      context: "relevant business and technical information"
+      
+      tools: "Connectors, APIs, database access, data sources, and access to enterprise systems "
+
+      specifications: "Define requirements, contracts, constraints, and acceptance criteria"
+
+      memory: "Maintain useful state and the related information"
+
+      validation: "Validate the model's output against the defined rules and expected behavior"
+
+      permissions: "User Access and the permissions"
+
+      observability: "Monitor the model's performance and output, logs, steps, decisions made and the reasoning about it"
+
+      guardrails: "Prevent the model from making decisions that could harm the business or the environment"
+
+      human_control: "Allow the model to pause and interact with the user whenever there is a sensetive decision to be made"
+
+

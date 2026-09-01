@@ -1,0 +1,11 @@
+- Build the requirements from 01-requirements.md
+
+- Generate the OpenAPI Specifications
+  Better prompt: Read this file and generate an OpenAPI 3.1 specification with schemas, validation, examples, and 400/404/503 responses. Do not invent additional functionality.
+
+- Once we have 02-openapi.yaml 
+
+- Have a legacy python API from existing project
+  - Compare and Audit the legacy code with the new specs
+
+  

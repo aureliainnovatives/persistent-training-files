@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: Order Tracking API
+  version: 1.0.0
+  description: API for retrieving order and delivery information.
+
+paths:
+  /api/orders/{order_id}:
+    get:
+      summary: Retrieve an order
+      operationId: getOrder
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          description: Order identifier in the format ORD- followed by four digits.
+          schema:
+            type: string
+            pattern: '^ORD-[0-9]{4}$'
+            example: ORD-1234
+      responses:
+        '200':
+          description: Order retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                order:
+                  value:
+                    order_id: ORD-1234
+                    customer: Jane Smith
+                    status: In transit
+                    destination: 10 Main Street, Springfield
+                    expected_delivery: '2026-09-01T18:00:00Z'
+        '400':
+          description: The order ID is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Invalid order ID.
+        '404':
+          description: The order was not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Order not found.
+        '503':
+          description: The order backend is unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                message: Order service temporarily unavailable.
+
+components:
+  schemas:
+    Order:
+      type: object
+      required:
+        - order_id
+        - customer
+        - status
+        - destination
+        - expected_delivery
+      additionalProperties: false
+      properties:
+        order_id:
+          type: string
+          pattern: '^ORD-[0-9]{4}$'
+          example: ORD-1234
+        customer:
+          type: string
+          example: Jane Smith
+        status:
+          type: string
+          example: In transit
+        destination:
+          type: string
+          example: 10 Main Street, Springfield
+        expected_delivery:
+          type: string
+          format: date-time
+          example: '2026-09-01T18:00:00Z'
+    Error:
+      type: object
+      required:
+        - message
+      additionalProperties: false
+      properties:
+        message:
+          type: string
+          description: A client-safe error message.
+          example: Order not found.

@@ -1,0 +1,87 @@
+[
+  {
+    "record": {
+      "customerId": "008",
+      "fullName": "Mayur Patil",
+      "email": "mayur@abc.com",
+      "phone": "+91-9876543210",
+      "state": "Maharashtra"
+    },
+    "errors": [
+      "INVALID_CUSTOMER_ID"
+    ]
+  },
+  {
+    "record": {
+      "customerId": "C1002",
+      "email": "anita@example.com",
+      "phone": "+91-9988776655",
+      "state": "Karnataka"
+    },
+    "errors": [
+      "DUPLICATE_CUSTOMER_ID",
+      "MISSING_FULL_NAME"
+    ]
+  },
+  {
+    "record": {
+      "customerId": "C1002",
+      "email": "anita@example",
+      "phone": "+91-9988776655",
+      "state": "Karnataka"
+    },
+    "errors": [
+      "DUPLICATE_CUSTOMER_ID",
+      "MISSING_FULL_NAME",
+      "INVALID_EMAIL"
+    ]
+  },
+  {
+    "record": {
+      "customerId": "C1003",
+      "fullName": "Ravi Kumar",
+      "email": "ravi.k example.com",
+      "phone": "+91-9123456780",
+      "state": "Delhi"
+    },
+    "errors": [
+      "INVALID_EMAIL"
+    ]
+  },
+  {
+    "record": {
+      "customerId": "C1009",
+      "fullName": "Vikram Mehta",
+      "email": "",
+      "phone": "654321098",
+      "state": "Delhi"
+    },
+    "errors": [
+      "INVALID_PHONE"
+    ]
+  },
+  {
+    "record": {
+      "customerId": "C1002",
+      "fullName": "Anita Shah",
+      "email": "anita@example.com",
+      "phone": "+91-9988776655",
+      "state": "Karnataka"
+    },
+    "errors": [
+      "DUPLICATE_CUSTOMER_ID"
+    ]
+  },
+  {
+    "record": {
+      "customerId": "C1002",
+      "fullName": "Anita Shah",
+      "email": "anita@example.com",
+      "phone": "+91-9988776655",
+      "state": "Karnataka"
+    },
+    "errors": [
+      "DUPLICATE_CUSTOMER_ID"
+    ]
+  }
+]
