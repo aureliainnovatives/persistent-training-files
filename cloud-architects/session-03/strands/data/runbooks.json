@@ -1,0 +1,23 @@
+{
+  "database connection pool": {
+    "symptoms": [
+      "DB connection acquisition timeout",
+      "normal CPU with high request latency"
+    ],
+    "safe_actions": [
+      "Compare pool configuration with last known-good release.",
+      "If incident began immediately after a pool configuration change, prepare rollback to last known-good configuration.",
+      "Require normal production change approval before rollback.",
+      "Monitor p95 latency, 5xx rate and DB connection utilization after remediation."
+    ]
+  },
+  "deployment rollback": {
+    "safe_actions": [
+      "Validate correlation between release and incident.",
+      "Confirm rollback artifact/version.",
+      "Obtain required production approval.",
+      "Roll back using the approved deployment mechanism.",
+      "Monitor service health after rollback."
+    ]
+  }
+}

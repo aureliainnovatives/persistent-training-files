@@ -1,0 +1,22 @@
+{
+  "checkout-api": {
+    "events": [
+      {
+        "time": "10:42:08",
+        "level": "ERROR",
+        "message": "DB connection acquisition timeout after 3000ms"
+      },
+      {
+        "time": "10:42:11",
+        "level": "WARN",
+        "message": "HikariPool-1 - Connection is not available"
+      },
+      {
+        "time": "10:43:02",
+        "level": "ERROR",
+        "message": "Checkout request failed: downstream database timeout"
+      }
+    ],
+    "observation": "Errors point to database connection pool exhaustion/timeouts."
+  }
+}

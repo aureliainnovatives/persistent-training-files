@@ -1,0 +1,19 @@
+{
+  "checkout-api": {
+    "deployments": [
+      {
+        "version": "4.7",
+        "time": "10:39",
+        "status": "successful",
+        "changes": "Changed DB pool max size from 80 to 15 while introducing new checkout validation."
+      },
+      {
+        "version": "4.6",
+        "time": "previous-day 16:20",
+        "status": "successful",
+        "changes": "Logging improvements."
+      }
+    ],
+    "observation": "Version 4.7 was deployed three minutes before the incident."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "checkout-api": {
+    "window": "10:35-10:50",
+    "cpu_percent": {
+      "before": 42,
+      "after": 46
+    },
+    "memory_percent": {
+      "before": 58,
+      "after": 61
+    },
+    "p95_latency_ms": {
+      "before": 210,
+      "after": 2450
+    },
+    "http_5xx_percent": {
+      "before": 0.3,
+      "after": 12.8
+    },
+    "request_rate_rps": {
+      "before": 820,
+      "after": 835
+    },
+    "observation": "Latency and 5xx spiked without a corresponding CPU or traffic spike."
+  }
+}

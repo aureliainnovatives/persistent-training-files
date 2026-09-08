@@ -1,0 +1,9 @@
+{
+  "checkout-api": {
+    "instances": 6,
+    "healthy_instances": 6,
+    "failed_health_checks": 0,
+    "autoscaling_status": "healthy",
+    "observation": "Compute layer appears healthy."
+  }
+}
