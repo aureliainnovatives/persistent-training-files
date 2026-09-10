@@ -1,0 +1,140 @@
+{
+  "get_active_alerts": {
+    "description": "Get active operational alerts and incident metadata. Use this to identify the affected service, severity, region, symptoms and incident timing before deeper investigation.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "incident_id": {
+          "type": "string",
+          "description": "Incident identifier to retrieve, for example INC-DEVOPS-001."
+        }
+      },
+      "required": [
+        "incident_id"
+      ]
+    }
+  },
+  "get_cloudwatch_metrics": {
+    "description": "Retrieve recent service telemetry comparable to Amazon CloudWatch metrics, including CPU, memory, latency, HTTP 5xx rate and request volume. Use it to compare current behavior with the normal baseline and test infrastructure saturation hypotheses.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "service_name": {
+          "type": "string",
+          "description": "Service whose operational metrics should be inspected."
+        },
+        "period_minutes": {
+          "type": "integer",
+          "description": "Recent time window in minutes.",
+          "minimum": 1,
+          "maximum": 120
+        }
+      },
+      "required": [
+        "service_name"
+      ]
+    }
+  },
+  "get_application_logs": {
+    "description": "Retrieve recent application log events for a service. Use this to identify errors, timeouts, exceptions and application-level evidence related to an incident.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "service_name": {
+          "type": "string",
+          "description": "Service whose application logs should be inspected."
+        },
+        "minutes": {
+          "type": "integer",
+          "description": "How many recent minutes of logs to inspect.",
+          "minimum": 1,
+          "maximum": 120
+        }
+      },
+      "required": [
+        "service_name"
+      ]
+    }
+  },
+  "get_recent_deployments": {
+    "description": "Retrieve recent deployments and configuration changes for a service. Use it to determine whether a release or configuration change correlates with the beginning of an incident.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "service_name": {
+          "type": "string",
+          "description": "Service whose deployment history should be inspected."
+        },
+        "hours": {
+          "type": "integer",
+          "description": "Recent deployment-history window in hours.",
+          "minimum": 1,
+          "maximum": 24
+        }
+      },
+      "required": [
+        "service_name"
+      ]
+    }
+  },
+  "get_ecs_service_health": {
+    "description": "Retrieve ECS-style service and task health. Use it to determine whether tasks are missing, unhealthy, restarting or otherwise indicate infrastructure health problems.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "service_name": {
+          "type": "string",
+          "description": "Service whose ECS health should be checked."
+        }
+      },
+      "required": [
+        "service_name"
+      ]
+    }
+  },
+  "get_runbook": {
+    "description": "Retrieve approved operational troubleshooting and remediation guidance for a problem category. Use this after evidence indicates a likely failure mode and before recommending production remediation.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "Problem or remediation topic, such as database connection pool exhaustion."
+        }
+      },
+      "required": [
+        "topic"
+      ]
+    }
+  },
+  "request_remediation": {
+    "description": "Request a controlled production remediation such as rollback, restart or scale. This lab tool does not automatically perform destructive changes. It returns whether human approval is required. Use only after gathering evidence and consulting relevant operational guidance.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "service_name": {
+          "type": "string",
+          "description": "Production service targeted by the remediation."
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "rollback",
+            "restart",
+            "scale"
+          ],
+          "description": "Requested remediation action."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Evidence-based justification for the requested action."
+        }
+      },
+      "required": [
+        "service_name",
+        "action",
+        "reason"
+      ]
+    }
+  }
+}
