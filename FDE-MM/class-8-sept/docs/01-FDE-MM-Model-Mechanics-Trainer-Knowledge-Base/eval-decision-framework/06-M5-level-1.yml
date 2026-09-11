@@ -1,0 +1,25 @@
+Level 1
+Research Evaluation
+(How foundation models are benchmarked)
+
+| Benchmark     | Purpose                        | Simple Explanation                                               |
+| ------------- | ------------------------------ | ---------------------------------------------------------------- |
+| **MMLU**      | General knowledge & reasoning  | University-level multiple-choice questions across many subjects. |
+| **GPQA**      | Graduate-level science         | Measures deep scientific reasoning.                              |
+| **HumanEval** | Coding                         | Generates code and checks if it passes unit tests.               |
+| **SWE-bench** | Software engineering           | Fixes real GitHub issues using code repositories.                |
+| **MATH**      | Mathematics                    | Solves competition-level math problems.                          |
+| **MMMU**      | Multimodal                     | Image + text reasoning.                                          |
+| **LiveBench** | Continually updated evaluation | Reduces benchmark contamination by using fresh tasks.            |
+
+
+
+MMLU - (Massive Multitask Language Understanding)
+GPQA - (Graduate-level Problem-solving Assessment)
+HumanEval - (Human-level problem-solving)
+SWE-bench - (Software Engineering Benchmark)
+MATH - (Mathematics)
+MMMU - (Multimodal Multitask Reasoning)
+LiveBench - (Continually updated evaluation)
+
+*** A Powerful Message - These benchmarks are useful to compare foundation models, but they do not guarantee success for your business use case.

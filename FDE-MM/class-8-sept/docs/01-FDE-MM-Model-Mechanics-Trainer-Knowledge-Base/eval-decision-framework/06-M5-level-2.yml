@@ -1,0 +1,15 @@
+Level 2
+Task Evaluation
+(How a model performs on a specific task)
+
+| Metric         | Used For                      | Intuition                                                             |
+| -------------- | ----------------------------- | --------------------------------------------------------------------- |
+| **Accuracy**   | Classification                | Percentage of correct predictions.                                    |
+| **Precision**  | False positives matter        | "When the model says yes, how often is it right?"                     |
+| **Recall**     | False negatives matter        | "How many true cases did we find?"                                    |
+| **F1 Score**   | Balance of precision & recall | Good for imbalanced datasets.                                         |
+| **BLEU**       | Machine translation           | Compares generated text with reference text.                          |
+| **ROUGE**      | Summarization                 | Measures overlap with expected summaries.                             |
+| **METEOR**     | Translation & generation      | More flexible than BLEU by considering synonyms.                      |
+| **Perplexity** | Language modeling             | Lower perplexity generally means better prediction of the next token. |
+

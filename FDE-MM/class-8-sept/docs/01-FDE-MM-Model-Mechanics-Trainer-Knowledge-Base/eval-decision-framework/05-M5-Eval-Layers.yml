@@ -1,0 +1,28 @@
+Level 1
+Research Evaluation
+(How foundation models are benchmarked)
+
+↓
+
+Level 2
+Task Evaluation
+(How a model performs on a specific task)
+
+↓
+
+Level 3
+LLM Evaluation
+(LLM-as-a-Judge, Agent Evaluation, Human Evaluation)
+
+↓
+
+Level 4
+Enterprise Evaluation
+(Cost, Latency, Privacy, Governance)
+
+↓
+
+Level 5
+Decision Framework
+(Which model should I recommend?)
+

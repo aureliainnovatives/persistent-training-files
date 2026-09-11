@@ -1,0 +1,30 @@
+- HandsOn-Tokenizer
+  - Sentense --> Token --> Token Id --> Vector Embeddings - Setence Embedding
+  - Hey, I am Mayur and I am happy to be here, Maharaj
+  - 10814, 11, 314, 716, 1737, 333, 290, 314, 716, 3772, 284, 307, 994, 11, 31692, 1228
+  - 10814 = [1.2345678, 0.123456, 0.98787, 0.123457]
+  - Mayur = [height, weight, age, eye color]
+  - SUV = [length, width, height, engine size]
+  - I am happy | I am glad | I am NOT sad | I am subtle
+
+- Model Mechanics
+  - Probabilistic Generation
+    FDE lens: Where is variability acceptable, 
+              and where does it become business risk?
+
+  - Autoregressive generation and error propagation
+    FDE lens: How far can an early model mistake propagate 
+              before the system detects it?
+  
+  - Temperature and top-p and top-k
+    FDE lens: Decoding configuration should follow the business
+     behaviour required---not developer preference.
+  
+  - Deterministic versus Probabilistic Workloads
+    FDE lens: Don't ask, "Can the LLM do this?" 
+    Ask, "Should the LLM be allowed to decide this?"
+
+  -  Instruction Following and Competing Instructions
+    FDE lens: When the model disobeys an instruction, 
+    first determine what other instruction or context it was 
+    attempting to satisfy.

@@ -1,0 +1,232 @@
+Business Requirement
+↓
+Evaluation Criteria
+↓
+Candidate Models
+↓
+Score Every Model
+↓
+Select Model
+↓
+Estimate Cost
+↓
+Deploy
+
+
+---
+
+Weight Scoreboard
+
+| Metric   | Weight | GPT | Claude | Llama |
+| -------- | ------ | --- | ------ | ----- |
+| Accuracy | 40%    | 9   | 8      | 7     |
+| Cost     | 20%    | 6   | 7      | 10    |
+| Latency  | 20%    | 8   | 8      | 7     |
+| Privacy  | 20%    | 5   | 5      | 10    |
+
+
+
+
+
+- id: M5
+
+  title: "Enterprise AI Evaluation & Model Selection"
+
+  objective: >
+    Understand how enterprise teams evaluate AI solutions using both technical
+    and business perspectives to confidently select the most appropriate model
+    for a given workload.
+
+  mental_model:
+    description: >
+      Enterprise model selection is a layered decision-making process.
+      Start by understanding model capability, validate it technically,
+      evaluate it on business requirements and finally recommend the
+      model that delivers the best overall outcome.
+
+  evaluation_framework:
+
+    - step: 1
+      title: "Define What We Are Evaluating"
+      description: >
+        We are not evaluating a model in isolation—we are evaluating an AI
+        solution for a specific business problem. Different workloads require
+        different evaluation criteria.
+
+      examples:
+        - "Customer Support Chatbot"
+        - "Coding Assistant"
+        - "Insurance Claims Classifier"
+        - "Document Summarizer"
+        - "Procurement Copilot"
+
+      key_message: >
+        Evaluate the solution, not just the model.
+
+    - step: 2
+      title: "Technical Evaluation"
+      description: >
+        Measure the inherent capability of the model using standardized
+        benchmarks and task-specific evaluation metrics.
+
+      cover:
+
+        research_benchmarks:
+          description: "Used by AI vendors and researchers to compare foundation models."
+
+          examples:
+            - "MMLU - General reasoning and knowledge"
+            - "HumanEval - Code generation"
+            - "SWE-bench - Software engineering tasks"
+            - "GPQA - Graduate-level scientific reasoning"
+            - "LiveBench - Dynamic real-world benchmark"
+            - "MMMU - Multimodal reasoning"
+
+        traditional_metrics:
+          description: "Task-specific metrics used to evaluate NLP models."
+
+          examples:
+            - "Accuracy"
+            - "Precision"
+            - "Recall"
+            - "F1 Score"
+            - "BLEU"
+            - "ROUGE"
+            - "METEOR"
+            - "Perplexity"
+
+        modern_llm_evaluation:
+          description: >
+            Evaluate generated responses using semantic understanding rather
+            than exact text matching.
+
+          methods:
+            - "Human Evaluation"
+            - "LLM-as-a-Judge"
+            - "Pairwise Comparison"
+            - "Arena-style Evaluation"
+
+        agent_evaluation:
+          description: >
+            Evaluate complete AI agents instead of individual responses.
+
+          dimensions:
+            - "Task Completion"
+            - "Planning Quality"
+            - "Tool Selection"
+            - "Tool Call Accuracy"
+            - "Hallucinated Tool Usage"
+            - "Recovery from Failures"
+            - "Latency"
+            - "Token Consumption"
+            - "Overall Success Rate"
+
+      key_message: >
+        Benchmarks tell us what a model is capable of—not whether it is the
+        right model for our customer.
+
+    - step: 3
+      title: "Enterprise Evaluation"
+      description: >
+        Evaluate whether the model satisfies enterprise constraints beyond
+        technical capability.
+
+      dimensions:
+        - "Response Quality"
+        - "Latency"
+        - "Inference Cost"
+        - "Context Window"
+        - "Reasoning Ability"
+        - "Structured Output Support"
+        - "Tool Calling Capability"
+        - "Privacy & Security"
+        - "Compliance"
+        - "Deployment Options"
+        - "Scalability"
+        - "Maintainability"
+        - "Vendor Support"
+
+      key_message: >
+        The highest benchmark score rarely guarantees the best enterprise fit.
+
+    - step: 4
+      title: "Model Comparison Scorecard"
+      description: >
+        Compare candidate models using weighted business priorities instead of
+        selecting the model with the highest benchmark.
+
+      evaluation_dimensions:
+        - "Accuracy"
+        - "Latency"
+        - "Cost"
+        - "Privacy"
+        - "Deployment"
+        - "Reasoning"
+        - "Structured Output"
+        - "Tool Support"
+
+      recommendation: >
+        Assign business weights to each criterion and calculate a weighted
+        score for every candidate model.
+
+      key_message: >
+        Model selection should be evidence-driven rather than opinion-driven.
+
+    - step: 5
+      title: "Total Cost of Ownership"
+      description: >
+        Evaluate the complete operational cost rather than only the price
+        per million tokens.
+
+      cost_components:
+        - "Inference Cost"
+        - "GPU Infrastructure"
+        - "Hosting"
+        - "Storage"
+        - "Vector Database"
+        - "Monitoring"
+        - "Evaluation Pipeline"
+        - "Engineering Effort"
+        - "Maintenance"
+        - "Support"
+        - "Licensing"
+
+      key_message: >
+        The cheapest model per token is not necessarily the cheapest model to operate.
+
+    - step: 6
+      title: "Effort Estimation"
+      description: >
+        Estimate implementation effort across the complete AI delivery
+        lifecycle instead of estimating only development work.
+
+      work_breakdown:
+        - "Business Discovery"
+        - "Data Collection & Preparation"
+        - "Prototype / PoC"
+        - "Evaluation"
+        - "Model Adaptation"
+        - "Deployment"
+        - "Security & Governance"
+        - "Testing"
+        - "User Enablement"
+        - "Production Support"
+
+      estimation_units:
+        - "Person Days"
+        - "Story Points"
+        - "Sprint Capacity"
+        - "Cost Estimate"
+
+      key_message: >
+        AI projects fail because teams underestimate integration,
+        governance and operational effort.
+
+  final_message: >
+    The best model is not the one with the highest benchmark.
+    The best model is the one that delivers the highest business value
+    within the customer's technical, operational and financial constraints.
+
+  memory_pointer:
+    mnemonic: >
+      DEFINE → BENCHMARK → ENTERPRISE → SCORE → COST → ESTIMATE
