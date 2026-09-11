@@ -1,0 +1,137 @@
+{
+  "get_security_alert": {
+    "name": "get_security_alert",
+    "description": "Retrieve the initial security incident/alert, including severity, affected identity or resource, detection time and observed indicators. Use this to establish investigation scope before deeper analysis.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "incident_id": {
+          "type": "string",
+          "description": "Security incident identifier, for example SEC-2026-001."
+        }
+      },
+      "required": [
+        "incident_id"
+      ]
+    }
+  },
+  "get_cloudtrail_events": {
+    "name": "get_cloudtrail_events",
+    "description": "Retrieve CloudTrail-like AWS API activity for an identity or resource over a recent time window. Use this to investigate who performed which API actions, from where, and whether sensitive or unusual AWS operations occurred.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "principal": {
+          "type": "string",
+          "description": "IAM principal, role, user, or session to investigate."
+        },
+        "minutes": {
+          "type": "integer",
+          "description": "Recent activity window in minutes.",
+          "minimum": 1,
+          "maximum": 1440
+        }
+      },
+      "required": [
+        "principal"
+      ]
+    }
+  },
+  "get_security_findings": {
+    "name": "get_security_findings",
+    "description": "Retrieve correlated GuardDuty/Security Hub-style security findings for an asset or principal. Use this to identify detections, severity, suspicious behavior and affected resources that may support or challenge a threat hypothesis.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "resource": {
+          "type": "string",
+          "description": "Resource, workload, or principal for which security findings should be retrieved."
+        }
+      },
+      "required": [
+        "resource"
+      ]
+    }
+  },
+  "get_vulnerability_findings": {
+    "name": "get_vulnerability_findings",
+    "description": "Retrieve Inspector-style vulnerability findings for a workload or software component. Use this to determine whether known vulnerabilities materially affect the incident risk or attack path.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "resource": {
+          "type": "string",
+          "description": "Workload, image, instance, package, or resource to inspect for vulnerabilities."
+        }
+      },
+      "required": [
+        "resource"
+      ]
+    }
+  },
+  "review_security_code": {
+    "name": "review_security_code",
+    "description": "Review a named deployment/configuration artifact for predefined security weaknesses such as excessive IAM permissions, unsafe secret handling, public exposure, or insecure configuration. Use this when code or configuration may have enabled the security incident.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "artifact_name": {
+          "type": "string",
+          "description": "Name of the code, IAM policy, deployment template, or configuration artifact to review."
+        }
+      },
+      "required": [
+        "artifact_name"
+      ]
+    }
+  },
+  "get_security_playbook": {
+    "name": "get_security_playbook",
+    "description": "Retrieve approved security investigation and remediation guidance for a threat or weakness. Use this before recommending or requesting containment/remediation so the response follows enterprise security procedure.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "Security threat, weakness, or remediation topic to look up."
+        }
+      },
+      "required": [
+        "topic"
+      ]
+    }
+  },
+  "request_security_remediation": {
+    "name": "request_security_remediation",
+    "description": "Request a controlled security remediation such as disable_credentials, restrict_iam, quarantine_workload, rotate_secret, or block_public_access. The lab does not execute high-impact production changes; it returns the approval requirement. Use only after evidence and playbook guidance support the action.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "Identity, workload, resource, or configuration targeted by remediation."
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "disable_credentials",
+            "restrict_iam",
+            "quarantine_workload",
+            "rotate_secret",
+            "block_public_access"
+          ],
+          "description": "Requested security remediation."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Evidence-based reason for the remediation request."
+        }
+      },
+      "required": [
+        "target",
+        "action",
+        "reason"
+      ]
+    }
+  }
+}

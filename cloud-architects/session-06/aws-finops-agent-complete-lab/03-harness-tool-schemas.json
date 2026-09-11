@@ -1,0 +1,170 @@
+{
+  "get_cost_summary": {
+    "name": "get_cost_summary",
+    "description": "Retrieve AWS cost summary and trend data for an account, service or workload. Use this to establish current spend, baseline spend, major cost drivers and period-over-period change before diagnosing an anomaly or recommending optimization.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "description": "Account, workload, service or cost-allocation scope to analyze."
+        },
+        "period": {
+          "type": "string",
+          "description": "Cost period such as current_month or last_30_days."
+        }
+      },
+      "required": [
+        "scope"
+      ]
+    }
+  },
+  "get_cost_anomalies": {
+    "name": "get_cost_anomalies",
+    "description": "Retrieve detected cost anomalies and their likely cost dimensions or services. Use this to determine whether spend materially deviates from the expected baseline and to identify where deeper investigation is needed.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "description": "Account or workload scope to inspect for cost anomalies."
+        }
+      },
+      "required": [
+        "scope"
+      ]
+    }
+  },
+  "get_resource_utilization": {
+    "name": "get_resource_utilization",
+    "description": "Retrieve utilization and capacity evidence for compute resources, including average and peak CPU/memory, instance size, runtime pattern and workload criticality. Use this to evaluate right-sizing or scheduling opportunities without relying on cost alone.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "resource_id": {
+          "type": "string",
+          "description": "Resource identifier whose utilization and capacity should be analyzed."
+        },
+        "days": {
+          "type": "integer",
+          "description": "Historical utilization window in days.",
+          "minimum": 1,
+          "maximum": 90
+        }
+      },
+      "required": [
+        "resource_id"
+      ]
+    }
+  },
+  "get_commitment_analysis": {
+    "name": "get_commitment_analysis",
+    "description": "Retrieve Savings Plans-style commitment analysis for eligible compute usage, including stable hourly spend, coverage, commitment candidates and estimated savings. Use this before recommending a financial commitment.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "description": "Workload or account scope for commitment analysis."
+        },
+        "term_years": {
+          "type": "integer",
+          "enum": [
+            1,
+            3
+          ],
+          "description": "Savings-plan analysis term."
+        }
+      },
+      "required": [
+        "scope",
+        "term_years"
+      ]
+    }
+  },
+  "get_schedule_analysis": {
+    "name": "get_schedule_analysis",
+    "description": "Analyze whether non-production resources run outside required business hours and estimate avoidable runtime. Use this to evaluate start/stop scheduling as an alternative or complement to right-sizing and commitments.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "resource_id": {
+          "type": "string",
+          "description": "Resource to analyze for scheduling opportunity."
+        }
+      },
+      "required": [
+        "resource_id"
+      ]
+    }
+  },
+  "get_forecast_and_budget": {
+    "name": "get_forecast_and_budget",
+    "description": "Retrieve current budget, month-to-date spend, end-of-period forecast, variance and budget threshold status. Use this to determine whether current cost behavior threatens budget objectives.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "description": "Budget or workload scope to forecast."
+        }
+      },
+      "required": [
+        "scope"
+      ]
+    }
+  },
+  "get_finops_policy": {
+    "name": "get_finops_policy",
+    "description": "Retrieve approved FinOps governance guidance for right-sizing, scheduling, commitment purchases, budgets and optimization approvals. Use this before requesting a cost optimization action.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "FinOps policy or optimization topic to retrieve."
+        }
+      },
+      "required": [
+        "topic"
+      ]
+    }
+  },
+  "request_finops_action": {
+    "name": "request_finops_action",
+    "description": "Request a controlled FinOps action such as rightsize, schedule_stop_start, purchase_savings_plan, or update_budget_alert. This lab does not execute infrastructure changes or financial commitments automatically; it returns the approval requirement.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "Resource, workload, account or budget targeted by the action."
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "rightsize",
+            "schedule_stop_start",
+            "purchase_savings_plan",
+            "update_budget_alert"
+          ],
+          "description": "Requested optimization or governance action."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Evidence-based business and technical justification."
+        },
+        "estimated_monthly_savings": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Estimated monthly savings in USD when applicable."
+        }
+      },
+      "required": [
+        "target",
+        "action",
+        "reason"
+      ]
+    }
+  }
+}
