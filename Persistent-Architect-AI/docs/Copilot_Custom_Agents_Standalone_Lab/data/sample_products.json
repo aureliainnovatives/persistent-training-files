@@ -1,0 +1,7 @@
+[
+  {"sku":"P-100","name":"USB-C Cable","price":899.0,"quantity":3},
+  {"sku":"P-200","name":"Laptop Stand","price":2499.0,"quantity":8},
+  {"sku":"P-300","name":"Webcam","price":4999.0,"quantity":10},
+  {"sku":"P-400","name":"Mechanical Keyboard","price":7499.0,"quantity":25},
+  {"sku":"P-500","name":"USB Hub","price":1999.0,"quantity":6}
+]

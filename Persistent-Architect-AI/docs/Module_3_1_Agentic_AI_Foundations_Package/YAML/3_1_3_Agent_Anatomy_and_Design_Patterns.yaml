@@ -1,0 +1,44 @@
+module: 3.1 Agentic AI Foundations
+subsection: 3.1.3
+title: Agent Anatomy & Design Patterns
+audience: Senior technology architects, business architects, domain leaders, engineering
+  leaders, and senior technical practitioners
+level: Advanced / Architect
+purpose: Decompose an agent into model/reasoning layer, planner, executor, tools,
+  memory/state, policy/guardrails, evaluator, and observability.
+learning_outcomes:
+- Decompose an agent into model/reasoning layer, planner, executor, tools, memory/state,
+  policy/guardrails, evaluator, and observability.
+- Compare ReAct, Plan-and-Solve, and Reflection as control-loop patterns and identify
+  where each introduces latency, cost, and failure risk.
+- Distinguish workflow orchestration from agentic decision-making and identify when
+  deterministic control should remain outside the LLM.
+- Use architecture traces to reason about tool calls, state transitions, retries,
+  stopping conditions, and escalation.
+teaching_approach:
+- Architecture-first explanation
+- Enterprise scenario and trade-off discussion
+- Reference architecture / decision framework
+- Failure-mode analysis
+- Senior-level discussion prompts
+recommended_flow:
+- phase: Frame
+  minutes: 10
+  focus: Establish the architectural problem and vocabulary.
+- phase: Deep dive
+  minutes: 20
+  focus: Explain components, patterns, trade-offs, and failure modes.
+- phase: Enterprise case
+  minutes: 15
+  focus: Apply concepts to a realistic enterprise scenario.
+- phase: Architecture discussion
+  minutes: 10
+  focus: Challenge assumptions and compare design choices.
+architect_questions:
+- What business decision or action is being delegated?
+- Where should autonomy stop?
+- What state and context are required?
+- Which controls must remain deterministic?
+- How will failure, escalation, audit, and cost be handled?
+evidence_of_learning: Participant can defend an architecture decision and identify
+  production risks, controls, and trade-offs.

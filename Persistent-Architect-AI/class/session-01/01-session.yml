@@ -1,0 +1,42 @@
+- Vocabulary
+  - 0 - I
+  - 1 - the
+  - 2 - cat
+  - 3 - sat
+  - 49999 - cream
+
+
+
+- Text -> Identify Token -> Token Ids
+
+Hi, I am Mayur Patil and I am happy to be here in AI Education Program
+17250, 11, 314, 716, 1737, 333, 3208, 346, 290, 314, 716, 3772, 284, 307, 994, 287, 9552, 7868, 6118
+
+Vectors
+17250 = [1.2345678, 0.123456, 0.98787, 0.123457]
+290 = [1.2345678, 0.123456, 0.98787, 0.123457] --> 4 Dimensions (Semantic World)
+450 = [-1.2345678, -0.123456, -0.98787, -0.123457] --> 4 Dimensions (Semantic World) - 768d, 1440d, 2000d+
+
+Keyword Matchs
+Semantic Similarity Score - Cosine Similarity
+Relavance Score --> -1 --> 1
+I am happy
+I am glad
+I am angry
+
+
+PGVector --> Vector Storage
+MongoDB --> Vector Storage
+..
+..
+..
+
+290 and 450 = Negative 0.10 relavance score
+
+I am Happy
+I am glad
+I am angry
+I am sad
+I am excited
+
+Queen = King - Male + Female

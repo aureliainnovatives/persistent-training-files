@@ -1,0 +1,26 @@
+- Agent anatomy 
+  - Planner : decompose the problem into smaller sub-problems, create a plan to solve them
+  - Executor + tools : API, DB, applications, external functions, etc. 
+  - Memory / State : Maintain useful state and the related information, history, context etc. (Context engineering, memory engineering)
+
+- ReACT, Plan and Solve, Reflection
+
+- Guardrails & Budget Controls
+  - Guardrails : Apply certain controls around the input, generation of the data. It also put control on the planning phase, tool selection and executino phase.
+  - Bounded execution : Restrict mode, permissions, iteration, timeout, etc.
+  - Budget Control : Token limits, retry logic, execution time, caching the input output and output 
+
+- Responsive AI and Governance
+  - Core Concerns : Fairness, accountibility, safety, security, digital trust, compliances etc.
+  - Governance : Policy controls, auditing over tools, connectors and data points, eval apply the gates, (Drift) 
+
+  - Train a Model --> Private data (Fine Tuning)
+    - 100% data to be used for training
+      - 70% for training
+      - 30% for Testing
+
+  - Agents (Deploy Agent)
+      - Test the agents --> Certain use cases (Prompts)
+
+      prompts ==> over the period of time changes
+

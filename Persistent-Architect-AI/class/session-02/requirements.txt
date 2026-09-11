@@ -1,0 +1,21 @@
+# ============================================================
+# Module 3.2 - Multi-Agent Workflows & Orchestration
+# ============================================================
+
+# Environment configuration
+python-dotenv
+
+# LangChain + OpenAI
+langchain
+langchain-openai
+
+# LangGraph
+langgraph
+
+# AutoGen
+autogen-agentchat
+autogen-ext[openai]
+
+
+# Structured output / data models
+pydantic

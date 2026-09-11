@@ -1,0 +1,174 @@
+- Mental Model - Index
+    Business Capability
+            ↓
+    Business Process
+            ↓
+    Problem / Decision Point
+            ↓
+    AI Suitability
+            ↓
+    Solution Pattern
+            ↓
+    Value and Financial Case
+            ↓
+    NFR and Risk Assessment
+            ↓
+    Build / Buy / Adapt / Orchestrate
+            ↓
+    Governance and Operating Model
+
+
+- Business Capability : A business capability describes what an organisation must be able to do, independent of a particular 
+                        application or team.
+  - Capability
+    → Process
+    → Activities
+    → Decisions
+    → Data
+    → Systems
+    → People
+    → AI Opportunity
+  
+  - Example:
+    Capability:
+      Claims Management
+
+    Process:
+      Claims Triage
+
+    Decision:
+      Is the claim complete, risky or eligible for straight-through processing?
+
+    AI Opportunity:
+      Classify, identify missing information and recommend routing.
+  
+- Business-process intelligence
+  - Before adding AI, understand how the process currently behaves.
+
+    Evaluate:
+      cycle time,
+      bottlenecks,
+      rework,
+      hand-offs,
+      exceptions,
+      decision delays,
+      failure rates,
+      cost per transaction,
+      human effort.
+
+    AI should improve a measurable process constraint, not merely add a conversational interface.
+
+- AI and agent suitability
+    Known steps + fixed rules
+    → Traditional workflow automation
+
+    Language understanding or prediction
+    → AI model
+
+    External knowledge
+    → RAG
+
+    Behaviour adaptation
+    → Fine-tuning
+
+    Dynamic multi-step execution
+    → Agent
+
+- Build, buy, adapt or orchestrate
+    ### Buy
+
+    Use an existing product or platform.
+
+    Best when:
+
+    -   the capability is common,
+    -   speed is important,
+    -   differentiation is low,
+    -   product features satisfy most requirements.
+
+    ### Build
+
+    Develop a custom solution.
+
+    Best when:
+
+    -   the workflow is differentiating,
+    -   control is essential,
+    -   integrations are complex,
+    -   packaged products do not fit.
+
+    ### Adapt
+
+    Configure, prompt, fine-tune or extend an existing model or platform.
+
+    Best when:
+
+    -   a foundation capability already exists,
+    -   domain behaviour must be added,
+    -   time and cost must remain controlled.
+
+    ### Orchestrate
+
+    Combine models, retrieval, tools, APIs, rules and human approvals.
+
+    Best when:
+
+    -   no single model solves the complete problem,
+    -   the solution spans multiple systems,
+    -   decisions and actions must be coordinated.
+
+    Most enterprise agentic solutions are primarily **orchestration systems**, not newly trained models.
+
+- Financial decisioning
+
+    ## TCO
+
+    Total Cost of Ownership includes more than model usage:
+
+    -   licensing,
+    -   inference,
+    -   cloud or GPU infrastructure,
+    -   data preparation,
+    -   engineering,
+    -   integration,
+    -   security,
+    -   evaluation,
+    -   monitoring,
+    -   support,
+    -   change management,
+    -   maintenance.
+
+    ## NPV
+
+    Net Present Value adjusts future benefits and costs to their present value.
+
+    Use NPV when comparing multi-year investments where future cash flows matter.
+
+    ## IRR
+
+    Internal Rate of Return is the discount rate at which the project’s NPV becomes zero.
+
+    Use IRR to compare AI investment opportunities with other capital initiatives.
+
+    For this workshop, NPV and IRR should remain conceptual rather than mathematical deep dives.
+
+- NFR Tradeoffs
+  - Non-functional requirements often determine whether an AI design is production-ready.
+  | NFR             | Architecture question                                |
+  | --------------- | ---------------------------------------------------- |
+  | Accuracy        | How much error can the business tolerate?            |
+  | Latency         | Is the workload interactive, batch or asynchronous?  |
+  | Cost            | What is the acceptable cost per task or transaction? |
+  | Availability    | What happens when the model or tool is unavailable?  |
+  | Privacy         | Can data leave the enterprise boundary?              |
+  | Explainability  | Must recommendations be justified or traced?         |
+  | Scalability     | What is the expected volume and concurrency?         |
+  | Security        | Which tools and systems may the agent access?        |
+  | Auditability    | Can prompts, actions and approvals be reconstructed? |
+  | Maintainability | Can models, prompts and tools be changed safely?     |
+
+
+  Higher Accuracy may require Larger Model
+    → Higher Cost
+    → Higher Latency
+

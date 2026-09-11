@@ -1,0 +1,17 @@
+- CI/CD/CT
+  - Azure Foundary
+  - Azure Fine tuning
+  - Azure evals
+
+
+
+
+  ```
+  tool: map
+  config: <config>
+
+  text: 
+
+
+
+  ````
